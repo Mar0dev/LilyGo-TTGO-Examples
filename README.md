@@ -25,7 +25,7 @@ Installation is pretty straight forward:
 
 This way you will upload script to your HID. Scripts are configured to run automatically, so each time you plug this device to a PC it will execute saved code.
 
-Scripts are intended to be run on Windows 10/11.
+Scripts are intended to be run on Windows 10/11 or Linux machines.
 
 ## Configuration
 Each script can be configured for ones needs. Configuration is at the top of the script. Let's have a look at _stealCookies.ino_ as an example:
