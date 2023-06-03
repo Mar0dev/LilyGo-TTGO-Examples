@@ -9,7 +9,7 @@ const char* server_ip = "192.168.8.124";
 void setup() {
 
   Keyboard.begin(); //start keyboard communication 
-   delay(2137);
+   delay(600);
    Keyboard.press(KEY_LEFT_GUI);
    delay(600); 
    Keyboard.press('r');
@@ -30,7 +30,7 @@ void setup() {
    Keyboard.release('m');
    delay(600);
    Keyboard.release('d');
-   delay(2137);
+   delay(600);
    Keyboard.press(KEY_RETURN);
    delay(600);
    Keyboard.release(KEY_RETURN);

