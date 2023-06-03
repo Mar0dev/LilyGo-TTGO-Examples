@@ -1,19 +1,4 @@
-# Rubber Ducky
-
-Kurs: 
-Bezpieczeństwo aplikacji webowych CBEU00600P K05-20c
-
-Kierunek: Cyberbezpieczeństwo
-
-Stopień: II
-
-Wykonanie:
-+ Dominik Błaszczyk (249429)
-+ Miłosz Jarząb (249044)
-+ Cezary Pawłowski (249098)
-+ Marek Wiśnicki (249068)
-
-Termin prac: 04-06.2023 r.
+# Rubber Ducky - projekt
 
 # Spis treści
 
