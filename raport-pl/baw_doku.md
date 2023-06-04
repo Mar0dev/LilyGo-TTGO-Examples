@@ -24,6 +24,8 @@ Celem tego projektu jest zdobycie wiedzy w zakresie komunikacji z urządzeniami 
 
 Rubber Ducky to narzędzie, które zostało zaprojektowane tak, aby naśladować funkcjonalność standardowej klawiatury USB, ale z dodatkową możliwością automatycznego wykonywania wstępnie skonfigurowanych sekwencji naciśnięć klawiszy, często bez wzbudzania podejrzeń. Swoim wyglądem przypomina urządzenie przenośne zawierającą pamięć nieultoną (pendrive) - nic bardziej mylnego, gdyż urządzenie to, po podłączeniu do komputera automatycznie inicjuje zdefiniowane oprogramowanie.
 
+![Rubber Ducky](./res/rubberducky.jpg)
+
 Aby korzystać z Rubber Ducky, użytkownik wstępnie programuje sekwencję naciśnięć klawiszy przy użyciu specjalistycznego języka skryptowego, który jest specyficzny dla urządzenia Rubber Ducky. Skrypty te definiują sekwencję naciśnięć klawiszy, opóźnień i innych poleceń, które mają zostać wykonane na komputerze docelowym po podłączeniu urządzenia Rubber Ducky przez USB. Gdy urządzenie jest podłączone do komputera docelowego, emuluje standardową klawiaturę USB i wykonuje sekwencję skryptów, skutecznie automatyzując serię działań.
 
 Rubber Ducky może być potężnym narzędziem do różnych celów, w tym automatyzacji powtarzalnych zadań, wykonywania konfiguracji systemu, a nawet wykorzystywania luk w zabezpieczeniach. Warto jednak zauważyć, że jego możliwości mogą być również nadużywane do złośliwych celów, takich jak uzyskiwanie nieautoryzowanego dostępu lub wykonywanie niebezpiecznych działań w systemie komputerowym. Podobnie jak w przypadku każdego innego narzędzia, korzystanie z niego powinno odbywać się w sposób etyczny i zgodny z obowiązującymi przepisami i regulacjami.
@@ -31,6 +33,8 @@ Rubber Ducky może być potężnym narzędziem do różnych celów, w tym automa
 # Opis urządzenia
 
 Celem projektu było przygotowanie mikrokontrolera, który będzie w stanie działać analogicznie do urządzenia Rubber Ducky - emulować wciśnięcia klawiszy klawiatury, po podłączeniu do komputera przez USB. By ten cel osiągnąć, zespół projektowy podjął decyzję o wykorzystaniu mikrokontrolera **ATmega32u4**, z modułem **LILYGO TTGO**, który posiada sprzętowy interfejs USB. Dzięki temu nie wymaga dodatkowego mikrokontrolera czy konwertera realizującego tę funkcjonalność, co pozwala to na bardzo łatwe tworzenie aplikacji emulujących wejścia na klawiaturze komputera. Całość  posiada 2,5 kB RAM, 10 cyfrowych wejść/wyjść z czego 4 można wykorzystać jako kanały PWM i 5 jako analogowe wejścia. Moduł ten, jest w pełni zgodny z projektem Arduino, co oznacza, że może być programowany poprzez środowisko Arduino IDE z wykorzystaniem dostępnych bibliotek.
+
+![LILYGO TTGO USB Microcontroller](./res/lillygo.jpg)
 
 Oto kilka kluczowych powodów, dla których zostały wybrane wyżej wymienione komponenty:
 + **Open-Source**: Arduino to platforma typu open-source, co oznacza, że jej sprzęt i oprogramowanie są ogólnodostępne. Użytkownicy mają dostęp do szerokiej gamy bibliotek, przykładów kodu i pomysłów na projekty, co przyspiesza proces rozwoju.
@@ -60,6 +64,9 @@ Charakter użycia przygotowanego mikrokontrolera zakłada stworzenie oprogramowa
 > 10. Jeśli flaga "checkDelete" ma wartość true, wysyłane są polecenia klawiaturowe w celu usunięcia pobranego pliku za pomocą polecenia PowerShell "Remove-Item".
 > 11. Funkcja "Keyboard.end()" jest wywoływana w celu zwolnienia zasobów klawiatury.
 
+![Pobranie i uruchomienie malware przez oprogramowanie](./res/run_malware.png)
+![Pobranie, uruchomienie i usunięcie śladów złośliwego działania przez oprogramowanie](./res/run_malware_2.png)
+
 2. **processorOverloading.ino** - skrypt ten automatycznie tworzy pierwszy plik batch, który następnie jest replikowany na komputerze ofiary, co powoduje zużycie wszystkich zasobów komputera i pojawienia się Blue Screen of Death.
 
     Poniżej znajduje się działanie kodu krok po kroku:
@@ -86,12 +93,16 @@ Charakter użycia przygotowanego mikrokontrolera zakłada stworzenie oprogramowa
 > 2. Skrypt sprawdza wartość zmiennych boolean dla każdej przeglądarki (chrome, firefox, edge) i kontynuuje kopiowanie plików cookie, jeśli flaga odpowiedniej przeglądarki jest ustawiona na 1 (true). Dla każdej wybranej przeglądarki skrypt wprowadza określoną ścieżkę folderu na komputerze lokalnym, w którym przechowywane są pliki cookie przeglądarki. Następnie wywołuje funkcję "copyCookies()" z odpowiednią ścieżką jako argumentem. Wewnątrz funkcji "copyCookies()" wykonywane są polecenia klawiaturowe symulujące otwarcie wiersza poleceń (CMD) i wprowadzenie polecenia "scp" w celu zainicjowania procesu kopiowania. Polecenie zawiera ścieżkę pliku cookie, szczegóły połączenia z serwerem i ścieżkę docelową na serwerze.
 > 3. Następuje zwolnienie zasobów skryptu.
 
+![Przekopiowanie plików cookie na zdalny serwer przy użyciu stworzonego oprogramowania](./res/steal_cookies.png)
+
 5. **stealPasswd.ino** - skrypt automatyzuje proces kopiowania pliku "/etc/passwd" z lokalnego komputera na zdalny serwer za pośrednictwem protokołu Secure Copy Protocol (SCP).
 
     Poniżej znajduje się podział funkcjonalności kodu:
 > 1. Po podłączeniu urządzenia USB kod jest inicjalizowany.
 > 2. Skrypt wykorzystuje funkcję Keyboard.println() do symulacji wpisywania polecenia SCP w celu skopiowania pliku "/etc/passwd" na zdalny serwer. Polecenie zawiera ścieżkę do pliku, szczegóły połączenia z serwerem i ścieżkę docelową na serwerze.
 > 3. Następuje zwolnienie zasobów skryptu.
+
+![Przekopiowanie haseł na zdalny serwer przy użyciu stworzonego oprogramowania](./res/steal_password.png)
 
 6. **stealWiFiPassword.ino** wraz z **WiFiStealer.PS1** - dostarczony kod pobiera skrypt Powershell ze zdalnego źródła, a następnie go wykonuje na komputerze ofiary. Skrypt Powershell pobiera listę zapisanych sieci wifi wraz z ich hasłami, a następnie wysyła je na serwer atakującego.
 
@@ -102,6 +113,8 @@ Charakter użycia przygotowanego mikrokontrolera zakłada stworzenie oprogramowa
 > 4. Usuwa wszystkie pliki powstałe w wyniku wyżej wymienionych informacji, celem zacierania śladów.
 > 5. Następuje zwolnienie zasobów skryptu.
 
+![Wysłanie zapisanych haseł wifi na zdalny serwer przy użyciu stworzonego oprogramowania](./res/steal_wifi_pass.png)
+
 7. **stealWifiConfig.ino** - skrypt pobiera profile WiFi, a następnie wysyła je na serwer atakującego. Jest inną wariacją skryptu opisanego w 6. punkcie.
 
     Poniżej znajduje się opis działania kodu:
@@ -110,9 +123,11 @@ Charakter użycia przygotowanego mikrokontrolera zakłada stworzenie oprogramowa
 > 3. Używa polecenia "del /f data.txt", aby usunąć plik "data.txt".
 > 4. Następuje zwolnienie zasobów skryptu.
 
+![Przekopiowanie ustawień wifi na zdalny serwer przy użyciu stworzonego oprogramowania](./res/steal_wifi.png)
+
 # Działania naprawcze/prewencyjne
 
-Ochrona przed atakami złęgo USB może być trudna. Najlepsze praktyki obejmują m.in.:
+Ochrona przed atakami złego USB może być trudna. Najlepsze praktyki obejmują m.in.:
 
 + Podłączanie tylko zaufanych urządzeń do portu USB.
 + Wykorzystanie przejściówek USB, uniemożliwiających tego typu ataki.
@@ -125,3 +140,11 @@ Ochrona przed atakami złęgo USB może być trudna. Najlepsze praktyki obejmuj�
 # Wnioski
 
 Urządzenia emulujące wejścia klawiatury mogą zostać wykorzystane do automatyzacji repetytywnych czynności, które wymagają jej użycia. Można je zaprogramować do szybkiego wykonywania złożonych sekwencji klawiszy, co pozwala zaoszczędzić czas i zwiększyć wydajność pracy. Oprócz tego, badacze bezpieczeństwa mogą ich używać do oceny bezpieczeństwa systemów. Wstrzykując predefiniowane naciśnięcia klawiszy, może wykonywać zadania, takie jak przechwytywanie haseł, eskalacja uprawnień lub uruchamianie innych testów bezpieczeństwa. Dodatkowo, mogą być wykorzystywane jako część ataku socjotechnicznego w celu wykorzystania ludzkich słabości, jako element programu mającego na celu podniesienie świadomości organizacji względem bezpieczeństwa. Są cennym narzędziem do celów edukacyjnych, umożliwiając użytkownikom zrozumienie i eksperymentowanie z atakami polegającymi na wstrzykiwaniu naciśnięć klawiszy, poznanie luk w zabezpieczeniach i opracowanie mechanizmów obrony przed nimi. Należy jednak wspomnieć, że pomimo wielu korzyści płynących z wyżej wymienionych elementów, urządzenia tego typu mogą być użyte do złośliwych celów przez cyberprzestępców. Implementując środki zaradcze opisane w poprzedniej części niniejszej pracy można skutecznie zmniejszyć wektor i konsekwencje takich ataków.
+
+# Bibliografia
+1. [Rubber Ducky](https://shop.hak5.org/products/usb-rubber-ducky_)
+2. [LILYGO TTGO USB Microcontroller](http://www.lilygo.cn/prod_view.aspx?TypeId=50033&Id=1179&FId=t3:50033:3)
+3. [Arduino IDE](https://www.arduino.cc/en/software)
+4. [Arduino Drivers](https://docs.arduino.cc/tutorials/generic/DriverInstallation)
+5. [Keyboard.h Library](https://reference.arduino.cc/reference/en/language/functions/usb/keyboard/)
+6. [Repozytorium projektowe](https://github.com/Mar0dev/LilyGo-TTGO-Examples/tree/main)
