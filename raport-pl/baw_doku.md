@@ -60,7 +60,15 @@ Charakter użycia przygotowanego mikrokontrolera zakłada stworzenie oprogramowa
 > 10. Jeśli flaga "checkDelete" ma wartość true, wysyłane są polecenia klawiaturowe w celu usunięcia pobranego pliku za pomocą polecenia PowerShell "Remove-Item".
 > 11. Funkcja "Keyboard.end()" jest wywoływana w celu zwolnienia zasobów klawiatury.
 
-2. **processorOverloading.ino**
+2. **processorOverloading.ino** - skrypt ten automatycznie tworzy pierwszy plik batch, który następnie jest replikowany na komputerze ofiary, co powoduje zużycie wszystkich zasobów komputera i pojawienia się Blue Screen of Death.
+
+    Poniżej znajduje się działanie kodu krok po kroku:
+    
+> 1. Skrypt zawiera bibliotekę Keyboard.h, która pozwala na emulację wciśnięć na klawiaturze.
+> 2. W kilku kolejnych linijkach kodu włączana jest konsola na systemie Windows, z której to będzie można wykonać resztę skryptu na komputerze ofiary.
+> 3. Celem kolejnej części kodu jest utworzenie pliku batch z kodem, który pozwala na powielanie plików. Jest to robione za pomocą komendy Keyboard.println.
+> 4. Po stworzeniu pliku w konsoli cmd na komputerze ofiary jest odpalany plik ze złośliwym kodem, który poprzez wielokrotną duplikację zabiera wszystkie zasoby komputera i powoduje pojawienie się Blue Screen of Death.
+> 5. Na sam koniec następuje zakończenie pracy urządzenia poprzez zakończenie "Keyboard.end()".
 
 3. **restartComputer.ino** - skrypt automatyzuje szereg działań, które obejmują uruchamianie określonych poleceń w wierszu polecenia systemu Windows w celu zainicjowania ponownego uruchomienia systemu z flagą wymuszenia.
 
