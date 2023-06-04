@@ -4,7 +4,7 @@
 const char* server_user = "ubuntu";
 const char* server_password = "ubuntu";
 const char* server_path = "/home/ubuntu";
-const char* server_ip = "192.168.8.124";
+const char* server_ip = "192.168.1.112";
 
 void setup() {
 
