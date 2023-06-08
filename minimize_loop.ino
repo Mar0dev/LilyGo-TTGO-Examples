@@ -1,5 +1,5 @@
 #include <Keyboard.h>
-//This script will minimize all opened windows every 7 second. You can unplug device after it's execured
+//This script will minimize all opened windows every 7 second. You can unplug device after it's executed
 //system restart will stop the script
 //you can also stop it by running: "taskkill /F /IM wscript.exe /T" in CMD
 
