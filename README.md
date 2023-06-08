@@ -25,21 +25,23 @@ Installation is pretty straight forward:
 
 This way you will upload script to your HID. Scripts are configured to run automatically, so each time you plug this device to a PC it will execute saved code.
 
+Scripts are intended to be run on Windows 10/11 or Linux machines.
+
 ## Configuration
 Each script can be configured for ones needs. Configuration is at the top of the script. Let's have a look at _stealCookies.ino_ as an example:
 
 _here you can assign username and password for SSH server connection as well as server IP and path to destination folder:_
 
-server_user = "ubuntu"
-server_password = "ubuntu"
-server_path = "/home/ubuntu"
-server_ip = "192.168.8.124"
+const char* server_user = "ubuntu";\
+const char* server_password = "ubuntu";\
+const char* server_path = "/home/ubuntu";\
+const char* server_ip = "192.168.8.124";
 
 _here you can enable from which browsers script will take an attemp to steal cookies_
 
-chrome = 1
-firefox = 0
-edge = 1
+bool chrome = 1;\
+bool firefox = 0;\
+bool edge = 1;
 
 ## License
 
