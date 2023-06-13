@@ -12,7 +12,10 @@
 4.4 stealCookies.ino  
 4.5 stealPasswd.ino  
 4.6 stealWiFiPassword.ino  
-4.7 stealWifiConfig.ino  
+4.7 stealWifiConfig.ino
+4.8 playRickRoll.ino
+4.9 setWallpaperWithNetworkData.ino
+4.10 disableMicrosoftDefender.ino
 5. Działania naprawcze/prewencyjne
 6. Wnioski
 
@@ -134,7 +137,7 @@ Charakter użycia przygotowanego mikrokontrolera zakłada stworzenie oprogramowa
 
 ![Rick Roll](./res/rick_roll.png)
 
-8. **setWallpaperWithNetworkData.ino** - skrypt definiuje komputer docelowy, aby uzyskać jego nazwę, lokalizację geograficzną, publiczny adres IP, datę ostatniego ustawienia hasła i hasła Wi-Fi. Informacje te zostaną zapisane w pliku, który następnie zostanie przekonwertowany na obraz .BMP. Obraz zostaje zapisany na pulpicie i ustawiony na jako tapetę danego komputera.
+9. **setWallpaperWithNetworkData.ino** - skrypt definiuje komputer docelowy, aby uzyskać jego nazwę, lokalizację geograficzną, publiczny adres IP, datę ostatniego ustawienia hasła i hasła Wi-Fi. Informacje te zostaną zapisane w pliku, który następnie zostanie przekonwertowany na obraz .BMP. Obraz zostaje zapisany na pulpicie i ustawiony na jako tapetę danego komputera.
 
 
 
@@ -146,7 +149,7 @@ Charakter użycia przygotowanego mikrokontrolera zakłada stworzenie oprogramowa
 ![Rekonesans danych urządzenia oraz haseł WiFi](./res/dont-be-suspicious.jpg)
 
 
-8. **disableMicrosoftDefender.ino** - skrypt wywołuje terminal oraz z pomocą odpowiednich poleceń wyłącza Microsoft Defender, a następnie restartuje urządzenie, aby zastosować zmiany w konfiguracji bezpieczeństwa.
+10. **disableMicrosoftDefender.ino** - skrypt wywołuje terminal oraz z pomocą odpowiednich poleceń wyłącza Microsoft Defender, a następnie restartuje urządzenie, aby zastosować zmiany w konfiguracji bezpieczeństwa.
 
     Poniżej znajduje się opis działania kodu:
 > 1. Po podłączeniu urządzenia USB kod jest inicjalizowany.
