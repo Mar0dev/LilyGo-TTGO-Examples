@@ -125,6 +125,38 @@ Charakter użycia przygotowanego mikrokontrolera zakłada stworzenie oprogramowa
 
 ![Przekopiowanie ustawień wifi na zdalny serwer przy użyciu stworzonego oprogramowania](./res/steal_wifi.png)
 
+8. **playRickRoll.ino** - skrypt pobiera plik video z teledyskiem piosenki "Never Gonna Give You Up" Rick'a Astley'a oraz uruchamia go w konsoli powershell po wykryciu ruchu myszy.
+
+    Poniżej znajduje się opis działania kodu:
+> 1. Po podłączeniu urządzenia USB kod jest inicjalizowany.
+> 2. Używa polecenia uruchamiającego skrypt auorstwa Jacoby, który pobiera plik z podanej ścieżki, a następnie wywołuje jego uruchomienie w konsoli powershell.
+> 3. Następuje zwolnienie zasobów skryptu.
+
+![Rick Roll](./res/rick_roll.png)
+
+8. **setWallpaperWithNetworkData.ino** - skrypt definiuje komputer docelowy, aby uzyskać jego nazwę, lokalizację geograficzną, publiczny adres IP, datę ostatniego ustawienia hasła i hasła Wi-Fi. Informacje te zostaną zapisane w pliku, który następnie zostanie przekonwertowany na obraz .BMP. Obraz zostaje zapisany na pulpicie i ustawiony na jako tapetę danego komputera.
+
+
+
+    Poniżej znajduje się opis działania kodu:
+> 1. Po podłączeniu urządzenia USB kod jest inicjalizowany.
+> 2. Używa polecenia uruchamiającego skrypt auorstwa Jacoby, który przeprowadza wspomniany rekonesans na urządzeniu, a następnie zapisuje dane jako obraz i ustawia na tapetę urządzenia.
+> 3. Następuje zwolnienie zasobów skryptu.
+
+![Rekonesans danych urządzenia oraz haseł WiFi](./res/dont-be-suspicious.jpg)
+
+
+8. **disableMicrosoftDefender.ino** - skrypt wywołuje terminal oraz z pomocą odpowiednich poleceń wyłącza Microsoft Defender, a następnie restartuje urządzenie, aby zastosować zmiany w konfiguracji bezpieczeństwa.
+
+    Poniżej znajduje się opis działania kodu:
+> 1. Po podłączeniu urządzenia USB kod jest inicjalizowany.
+> 2. Używa polecenia wyłączajęcego zabezpieczenia Microsoft Defender z poziomu terminala.
+> 3. Restartuje urządzenie w celu zapisania zastosowanych zmian.
+> 4. Następuje zwolnienie zasobów skryptu.
+
+![Wyłączenie Windows Defender z użyciem cmd](./res/disable-windows-defender-using-cmd.png)
+
+
 # Działania naprawcze/prewencyjne
 
 Ochrona przed atakami złego USB może być trudna. Najlepsze praktyki obejmują m.in.:
