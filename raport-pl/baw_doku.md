@@ -146,7 +146,7 @@ Charakter użycia przygotowanego mikrokontrolera zakłada stworzenie oprogramowa
 > 2. Używa polecenia uruchamiającego skrypt auorstwa Jacoby, który przeprowadza wspomniany rekonesans na urządzeniu, a następnie zapisuje dane jako obraz i ustawia na tapetę urządzenia.
 > 3. Następuje zwolnienie zasobów skryptu.
 
-![Rekonesans danych urządzenia oraz haseł WiFi](./res/dont-be-suspicious.jpg)
+![Rekonesans danych urządzenia oraz haseł WiFi](./res/dont-be-suspicious.png)
 
 
 10. **disableMicrosoftDefender.ino** - skrypt wywołuje terminal oraz z pomocą odpowiednich poleceń wyłącza Microsoft Defender, a następnie restartuje urządzenie, aby zastosować zmiany w konfiguracji bezpieczeństwa.
