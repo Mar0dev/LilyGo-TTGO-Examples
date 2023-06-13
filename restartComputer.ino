@@ -3,7 +3,7 @@
 void setup() {
 
  Keyboard.begin(); //start keyboard communication 
-  delay(600);
+  delay(2000);
   Keyboard.press(KEY_LEFT_GUI);
   delay(600); 
   Keyboard.press('r');
@@ -22,7 +22,7 @@ void setup() {
   Keyboard.release('m');
   delay(300);
   Keyboard.release('d');
-  delay(1000);
+  delay(2000);
   Keyboard.press(KEY_RETURN);
   delay(600);
   Keyboard.release(KEY_RETURN);
