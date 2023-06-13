@@ -3,28 +3,26 @@
 void setup() {
 
   Keyboard.begin(); //start keyboard communication 
-   delay(2137);
+   delay(600);
    Keyboard.press(KEY_LEFT_GUI);
    delay(600); 
    Keyboard.press('r');
    delay(600); 
    Keyboard.release(KEY_LEFT_GUI);
-   Keyboard.press('r');
-   delay(600); 
-   Keyboard.release(KEY_LEFT_GUI);
-   delay(600);
+   Keyboard.release('r');
+   delay(500);
    Keyboard.press('c');
-   delay(600);
+   delay(500);
    Keyboard.press('m');
-   delay(600);
+   delay(500);
    Keyboard.press('d');
-   delay(600);
+   delay(300);
    Keyboard.release('c');
-   delay(600);
+   delay(300);
    Keyboard.release('m');
-   delay(600);
+   delay(300);
    Keyboard.release('d');
-   delay(2137);
+   delay(1000);
    Keyboard.press(KEY_RETURN);
    delay(600);
    Keyboard.release(KEY_RETURN);
